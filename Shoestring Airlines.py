@@ -22,7 +22,7 @@ p_Infants = 10.00
 Adult = p_Adults
 Child = p_Children
 Infant = p_Infants
-
+x = 30
 print(D_dash_lng)    # prints D_dash to add some style to the program
 print("                                        **Welcome to Shoestring Airlines!**")
 print("""                                        This is an online program for you
@@ -38,6 +38,9 @@ and usability. Thank you.\n  """)    # \n assigns a newline
 print(D_dash_lng)
 
 print('Please enter [1] "No square bracket"  to Read more...')
+
+def adultCalc(x, y):
+    return (x * y)
 
 def dis_options():    # dis = display    # def is used to define a new function so that you're not limited to vanilla py functions
     # displays menu for user
@@ -67,13 +70,13 @@ while choice != "Q":
     # this loops until the user quits the program
     if choice == "C":    
         # opens list for CURRENT flights
-        print(flights_ENG.flights_C_ENG())    # module imported from the top used here to print list of flights
+        flights_ENG.flights_C_ENG()    # module imported from the top used here to print list of flights
 
     elif choice == "F":
-        print(flights_ENG.flights_F_ENG())    # module imported from the top used here to print list of flights
+        flights_ENG.flights_F_ENG()    # module imported from the top used here to print list of flights
 
     elif choice == "H":
-        print(HELP.h_HELP())                  # module imported from the top used here to print list of flights
+        HELP.h_HELP()                         # module imported from the top used here to print list of flights
 
     elif choice == "B":
         print("To book a flight we need to know what ticket-types you need and how many you need.")
@@ -83,7 +86,12 @@ while choice != "Q":
         print("Child: £", format(Child, ",.2f"))
         print("Infant: £", format(Infant, ",.2f"))
         print(D_equals)
-
+        print("Please specify the amount of tickets for each ticket-type")
+        num2 = input("Adult: ")
+        print(num2 + " Adult ticket(s) cost £", adultCalc(num2, 30))
+        y = input("Child: ")
+        z = input("Infant: ")
+        
     elif choice == "R":
         # re-prints the menu
         dis_options()
