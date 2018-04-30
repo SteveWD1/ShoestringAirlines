@@ -22,7 +22,7 @@ p_Infants = 10.00
 Adult = p_Adults
 Child = p_Children
 Infant = p_Infants
-x = 30
+
 print(D_dash_lng)    # prints D_dash to add some style to the program
 print("                                        **Welcome to Shoestring Airlines!**")
 print("""                                        This is an online program for you
@@ -39,10 +39,16 @@ print(D_dash_lng)
 
 print('Please enter [1] "No square bracket"  to Read more...')
 
-class ticketCalc:
+class ticketCalc:    # I have sorted the ticket calculations into classes to make them easier to handle and access
 
-    def adultCalc(x, y):    
-        return int(x) * int(y)
+    def adultCalc(p_Adults, y):    # calc = calculate    
+        return int(p_Adults) * int(y)
+
+    def childCalc(p_Children, y):
+        return int(p_Children) * int(y)
+
+    def infantCalc(p_Infants, y):
+        return int(p_Infants) * int(y)
 
 def dis_options():    # dis = display    # def is used to define a new function so that you're not limited to vanilla py functions
     # displays menu for user
@@ -89,10 +95,15 @@ while choice != "Q":
         print("Infant: £", format(Infant, ",.2f"))
         print(D_equals)
         print("Please specify the amount of tickets for each ticket-type")
-        num2 = input("Adult: ")
-        print(num2 + " Adult ticket(s) cost £", ticketCalc.adultCalc(num2, 30))
-        y = input("Child: ")
-        z = input("Infant: ")
+
+        num1 = input("Adult: ")
+        print(num1 + " Adult ticket(s) cost £", ticketCalc.adultCalc(num1, p_Adults))
+
+        num2 = input("Child: ")
+        print(num2 + " Adult ticket(s) cost £", ticketCalc.childCalc(num2, p_Children))
+
+        num3 = input("Infant: ")
+        print(num3 + " Adult ticket(s) cost £", ticketCalc.infantCalc(num3, p_Infants))
         
     elif choice == "R":
         # re-prints the menu
